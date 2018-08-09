@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ObserveService} from '../observe.service';
-import{GoogleLoginService} from '../google-login.service';
-import{ChatService} from '../chat.service';
+import { ObserveService } from '../observe.service';
+import { GoogleLoginService } from '../google-login.service';
+import { ChatService } from '../chat.service';
 
 @Component({
   selector: 'app-mychannel',
@@ -10,40 +10,40 @@ import{ChatService} from '../chat.service';
 })
 export class MychannelComponent implements OnInit {
 
-  constructor(private googleService:GoogleLoginService,private observe:ObserveService,private chatSer:ChatService) {
-    this.userData= this.googleService.getData();
+  constructor(private googleService: GoogleLoginService, private observe: ObserveService, private chatSer: ChatService) {
+    this.userData = this.googleService.getData();
 
-    this.observe.getUserChannel(this.userData.email).subscribe(res=>{
+    this.observe.getUserChannel(this.userData.email).subscribe(res => {
       console.log(res);
-      this.userChannel=res.channels;
+      this.userChannel = res.channels;
     },
-  err=>{
-    console.log(err)
-  })
-   }
-userData:any;
-userChannel:any;
-  ngOnInit() {  
-    
+      err => {
+        console.log(err)
+      })
   }
-  changeChannel(channel){
-   localStorage.setItem("channel",channel);
+  userData: any;
+  userChannel: any;
+  ngOnInit() {
+
+  }
+  changeChannel(channel) {
+    localStorage.setItem("channel", channel);
     console.log(channel);
   }
-  addChannel(){
+  addChannel() {
     var channelName = prompt("Please enter the channel name");
     console.log(channelName)
-    this.observe.createChannel(channelName).subscribe(res=>{
+    this.observe.createChannel(channelName).subscribe(res => {
       console.log(res);
-      this.observe.addUserChannel(channelName,this.userData.email).subscribe(res=>{
+      this.observe.addUserChannel(channelName, this.userData.email).subscribe(res => {
         console.log(res);
       },
-    err=>{
-      console.log(err)
-    })
+        err => {
+          console.log(err)
+        })
     },
-  err=>{
-    console.log(err)
-  })
+      err => {
+        console.log(err)
+      })
   }
 }
