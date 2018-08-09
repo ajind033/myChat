@@ -49,6 +49,13 @@ export class SearchChannelComponent implements OnInit {
     if (confimAdd) {
       this.observe.addUserChannel(id, this.userData.email).subscribe(res => {
         console.log(res);
+        this.observe.getAllChannel().subscribe(res => {
+          console.log(res);
+          this.channelData = res;
+        },
+          err => {
+            console.log(err)
+          })
       },
         err => {
           console.log(err)
@@ -56,10 +63,10 @@ export class SearchChannelComponent implements OnInit {
     }
   }
 
-  showAllChannel(){
+  showAllChannel() {
     this.searchData.length = 0;
-    for (let channel of this.channelData.channels) {      
-        this.searchData.push(channel.unique_name)
+    for (let channel of this.channelData.channels) {
+      this.searchData.push(channel.unique_name)
     }
   }
 }
