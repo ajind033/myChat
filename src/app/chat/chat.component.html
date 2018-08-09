@@ -13,7 +13,7 @@
     Messages:
     <div class="message">
     <ul class="list-group">
-      <li *ngFor='let msg of message'  class="list-group-item list-group-item-info">{{msg.body}}
+      <li *ngFor='let msg of message'  class="alert alert-warning" style='overflow: hidden;' [ngStyle] = '{"float": msg.from == userData.email ? "right": "left"}'>{{msg.body}}
         <br/> from:{{msg.from}}</li>
     </ul>
   </div>
