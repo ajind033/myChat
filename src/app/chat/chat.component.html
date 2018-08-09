@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="username">
+      {{userData.name}}
+  </div>
+  <div class="leftSideBar">
+    <app-search-channel></app-search-channel>
+    <app-mychannel></app-mychannel>
+  </div>
+  <div class="messageArea">
+    Messages:
+    <ul>
+      <li *ngFor='let msg of message'>{{msg.body}} <br/> from:{{msg.from}}</li>
+    </ul>
+    <input type='text'[(ngModel)] =msg>
+    <button (click)="sendMsg()">Send</button>
+  </div>
+</div>

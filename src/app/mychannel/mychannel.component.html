@@ -1,0 +1,7 @@
+<p>
+  mychannel
+</p>
+<button (click)="addChannel()">Add Channel</button>
+<ul>
+  <li *ngFor = 'let channel of userChannel' (click)='changeChannel(channel.channel_sid)'>{{channel.channel_sid}}</li>
+  </ul>

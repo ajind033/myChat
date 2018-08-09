@@ -1,0 +1,4 @@
+<input type="search" id="givenItem" (keyup)="findchannel()" placeholder="Search channel ..." [(ngModel)]=item />
+<ul>
+<li *ngFor = 'let channel of searchData' (click)='addToChannel(channel)'>{{channel}}</li>
+</ul>
