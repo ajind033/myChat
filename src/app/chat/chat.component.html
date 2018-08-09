@@ -1,18 +1,28 @@
-<div class="username" align="center">
-  {{userData.name}}
+<div class="bg-primary" align="center">
+ Username: {{userData.name}}
 </div>
-<div class="container">
+<div class=" myContainer">
   <div class="leftSideBar">
+    <div class="searchChannel">
     <app-search-channel></app-search-channel>
-    <app-mychannel></app-mychannel>
   </div>
+  <div class="myChannel">
+    <app-mychannel></app-mychannel>
+  </div></div>
   <div class="messageArea">
     Messages:
-    <ul>
-      <li *ngFor='let msg of message'>{{msg.body}}
+    <div class="message">
+    <ul class="list-group">
+      <li *ngFor='let msg of message'  class="list-group-item list-group-item-info">{{msg.body}}
         <br/> from:{{msg.from}}</li>
     </ul>
+  </div>
+    <div  class="search">
     <input type='text' [(ngModel)]=msg>
-    <button (click)="sendMsg()">Send</button>
+    <button (click)="sendMsg()" class="btn-success">Send</button>
   </div>
 </div>
+</div>
+<div class="bg-primary" id="footer" align="center">
+    &copy; 2018 My Chat App. All Rights Reserved.
+  </div>

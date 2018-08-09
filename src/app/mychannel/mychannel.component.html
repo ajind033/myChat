@@ -1,10 +1,9 @@
 <div class="mychannel">
-  <p>
-    My Channel:
-  </p>
+   My Channel:
   <ul>
     <li *ngFor='let channel of userChannel' (click)='changeChannel(channel.channel_sid)'>{{channel.channel_sid}}</li>
   </ul>
-  <button (click)="addChannel()">Add Channel</button>
+  
+  <button (click)="addChannel()" class="btn-primary"> <span class="glyphicon glyphicon-plus"></span>Add Channel</button>
   <br/>
 </div>

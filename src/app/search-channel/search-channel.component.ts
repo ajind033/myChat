@@ -55,4 +55,11 @@ export class SearchChannelComponent implements OnInit {
         })
     }
   }
+
+  showAllChannel(){
+    this.searchData.length = 0;
+    for (let channel of this.channelData.channels) {      
+        this.searchData.push(channel.unique_name)
+    }
+  }
 }
