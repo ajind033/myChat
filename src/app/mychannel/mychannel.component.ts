@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ObserveService } from '../observe.service';
-import { GoogleLoginService } from '../google-login.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-mychannel',
@@ -9,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class MychannelComponent implements OnInit {
 
-  constructor(private googleService: GoogleLoginService, private observe: ObserveService, private router: Router) {
+  constructor( private observe: ObserveService, private router: Router) {
     this.userData = JSON.parse(sessionStorage.getItem("userData"))
 
     this.observe.getUserChannel(this.userData.email).subscribe(res => {

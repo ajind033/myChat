@@ -6,7 +6,6 @@ import { Routes,RouterModule } from '@angular/router';
 import{SocialLoginModule,GoogleLoginProvider,AuthServiceConfig} from 'angular-6-social-login';
 import{ HttpClientModule} from '@angular/common/http'
 
-import{GoogleLoginService} from './google-login.service';
 import {ObserveService} from './observe.service';
 import{AuthService} from'./auth.service';
 
@@ -63,7 +62,6 @@ export function getAuthServiceConfigs() {
   providers: [
     ObserveService,
     AuthService,
-    GoogleLoginService,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ObserveService } from '../observe.service';
-import { GoogleLoginService } from '../google-login.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SearchChannelComponent implements OnInit {
 
-  constructor(private googleService: GoogleLoginService, private observe: ObserveService, private router: Router) { }
+  constructor( private observe: ObserveService, private router: Router) { }
   item: string = '';
   channelData: any;
   reg: any;
@@ -18,7 +17,7 @@ export class SearchChannelComponent implements OnInit {
   searchData = [];
   ngOnInit() {
 
-    this.userData = this.googleService.getData();
+    this.userData = JSON.parse(sessionStorage.getItem("userData"));
 
     this.observe.getAllChannel().subscribe(res => {
       console.log(res);

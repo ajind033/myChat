@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { GoogleLoginService } from '../google-login.service';
 
 import { ObserveService } from '../observe.service';
 @Component({
@@ -9,7 +8,7 @@ import { ObserveService } from '../observe.service';
 })
 export class ChatComponent implements OnInit, OnDestroy {
 
-  constructor(private googleService: GoogleLoginService, private observe: ObserveService) { }
+  constructor( private observe: ObserveService) { }
   message: any;
   author: any;
   userData: any;
