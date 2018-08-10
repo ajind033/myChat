@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
         // Now sign-in with userData
         // ...
         this.googleService.setData(userData);
+        sessionStorage.setItem('key',"okmlp==");
         this.router.navigate(["/chat"])
       }
 

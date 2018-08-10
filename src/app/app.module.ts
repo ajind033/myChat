@@ -7,14 +7,15 @@ import{SocialLoginModule,GoogleLoginProvider,AuthServiceConfig} from 'angular-6-
 import{ HttpClientModule} from '@angular/common/http'
 
 import{GoogleLoginService} from './google-login.service';
-import {ObserveService} from './observe.service'
-import { ChatService} from './chat.service';
+import {ObserveService} from './observe.service';
+import{AuthService} from'./auth.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ChatComponent } from './chat/chat.component';
 import { SearchChannelComponent } from './search-channel/search-channel.component';
 import { MychannelComponent } from './mychannel/mychannel.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -35,7 +36,12 @@ export function getAuthServiceConfigs() {
    },
    {
      path:'chat',
-     component:ChatComponent
+     component:ChatComponent,
+     canActivate:[AuthService]
+   },
+   {
+     path:'**',
+     component:PageNotFoundComponent
    }
  ]
 @NgModule({
@@ -44,7 +50,8 @@ export function getAuthServiceConfigs() {
     LoginComponent,
     ChatComponent,
     SearchChannelComponent,
-    MychannelComponent
+    MychannelComponent,
+    PageNotFoundComponent
   ],
   imports: [
     FormsModule,
@@ -55,7 +62,7 @@ export function getAuthServiceConfigs() {
   ],
   providers: [
     ObserveService,
-    ChatService,
+    AuthService,
     GoogleLoginService,
     {
       provide: AuthServiceConfig,

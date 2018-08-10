@@ -47,8 +47,9 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   }
   sendMsg() {
-    if (!localStorage.getItem("channel")) {
-      window.alert("Please Select a Channel from my Channel");
+
+    if (this.msg=="") {
+      return;
     }
     console.log(this.msg);
     this.observe.sendMessage(this.msg, this.userData.email).subscribe(res => {

@@ -1,8 +1,7 @@
 <div class="searchChannel">
-  <br/> Search Channel:
-  <input type="search" id="givenItem" (keyup)="findchannel()" placeholder="Search channel ..." [(ngModel)]=item />
-  <button (click)="showAllChannel()" class="btn-primary">All</button>
+  
+    <input type="text" class="form-control" align="right" placeholder="Search Channel" (keyup)="findchannel()" [(ngModel)]=item>
   <ul>
-    <li *ngFor='let channel of searchData' (click)='addToChannel(channel)'>{{channel}}</li>
+    <li *ngFor='let channel of searchData' class="list-group-item" (click)='addToChannel(channel)'>{{channel}}</li>
   </ul>
 </div>

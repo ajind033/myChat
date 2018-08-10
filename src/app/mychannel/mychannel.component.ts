@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ObserveService } from '../observe.service';
 import { GoogleLoginService } from '../google-login.service';
-import { ChatService } from '../chat.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-mychannel',
   templateUrl: './mychannel.component.html',
@@ -10,7 +9,7 @@ import { ChatService } from '../chat.service';
 })
 export class MychannelComponent implements OnInit {
 
-  constructor(private googleService: GoogleLoginService, private observe: ObserveService, private chatSer: ChatService) {
+  constructor(private googleService: GoogleLoginService, private observe: ObserveService, private router: Router) {
     this.userData = this.googleService.getData();
 
     this.observe.getUserChannel(this.userData.email).subscribe(res => {
@@ -32,11 +31,17 @@ export class MychannelComponent implements OnInit {
   }
   addChannel() {
     var channelName = prompt("Please enter the channel name");
+    if ((channelName == '') || (channelName == null)) {
+      alert("Enter the channel name")
+      return;
+    }
     console.log(channelName)
     this.observe.createChannel(channelName).subscribe(res => {
       console.log(res);
       this.observe.addUserChannel(channelName, this.userData.email).subscribe(res => {
         console.log(res);
+        this.router.navigateByUrl('/RefrshComponent', { skipLocationChange: true }).then(() =>
+          this.router.navigate(["/chat"]));
       },
         err => {
           console.log(err)

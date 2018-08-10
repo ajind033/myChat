@@ -1,34 +1,37 @@
 .myContainer{
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-gap: 1%;
 }
 .leftSideBar{
-    padding: auto;
-    margin: auto;
+    background-color: #4D394B;
+    color: #AB9BA9;
     height: 100vh;
-    border-right: 1px #337ab7 solid;
-    }
-.search{ position: fixed;
-    bottom: 0;
-    margin-bottom: 5%;
-    width: 75%;
-    input{
-    width: 80%;
-    margin: 10px;}
 }
-ul{
+#username{
+    text-align: center;
+    font-size: 18px;
+    margin-top:18px;
+}
+#username:hover{
+    color: #ffffff;
+}
+.sendMsg{
+    position:absolute;
+    bottom:4vh;    
+    margin-left: 18px;
+    margin-right: 18px;
+    width: 150vh;
+}
+.messageGroup{
+    z-index: 1000;
+    overflow-y: scroll;
+    height: 70vh;
+    width: 150vh; 
+    position: absolute;
+    bottom: 12vh;
     li{
-        margin: 8px;
+        overflow: hidden;
         width: 50%;
+        margin: 5px;
     }
-}
-.message{
-    overflow: auto;
-    height: 75vh;
-}
-#footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
