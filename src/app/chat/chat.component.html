@@ -6,6 +6,11 @@
     <div class="myChannel">
       <app-mychannel></app-mychannel>
     </div>
+    <div class="logout">
+      <button type="button" (click)="logout()">
+        <span class="glyphicon glyphicon-log-out"></span> Log out
+      </button>
+    </div>
   </div>
   <div class="mainArea">
     <div class="searchChannel">
@@ -13,9 +18,8 @@
     </div>
     <div class="messageGroup">
       <ul class="list-group">
-        <li *ngFor='let msg of message'  
-        [ngClass]="{'alert alert-warning':(msg.from != userData.email),'alert alert-success':(msg.from == userData.email)}"  
-        [ngStyle] = '{"float": msg.from == userData.email ? "right": "left"}'>{{msg.body}}
+        <li *ngFor='let msg of message' [ngClass]="{'alert alert-warning':(msg.from != userData.email),'alert alert-success':(msg.from == userData.email)}"
+          [ngStyle]='{"float": msg.from == userData.email ? "right": "left"}'>{{msg.body}}
           <br/> from:{{msg.from}}</li>
       </ul>
     </div>

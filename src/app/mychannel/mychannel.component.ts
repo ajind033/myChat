@@ -47,6 +47,7 @@ export class MychannelComponent implements OnInit {
         })
     },
       err => {
+        alert("Channel already exists");
         console.log(err)
       })
   }

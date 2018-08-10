@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ObserveService } from '../observe.service';
 @Component({
@@ -8,7 +9,7 @@ import { ObserveService } from '../observe.service';
 })
 export class ChatComponent implements OnInit, OnDestroy {
 
-  constructor( private observe: ObserveService) { }
+  constructor( private observe: ObserveService,private router : Router ) { }
   message: any;
   author: any;
   userData: any;
@@ -59,6 +60,11 @@ export class ChatComponent implements OnInit, OnDestroy {
       err => {
         console.log(err)
       })
+  }
+  logout(){
+    sessionStorage.clear();
+    alert("You are logged out!!");
+    this.router.navigate(['/']);
   }
 }
 

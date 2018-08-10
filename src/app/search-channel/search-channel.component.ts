@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SearchChannelComponent implements OnInit {
 
-  constructor( private observe: ObserveService, private router: Router) { }
+  constructor(private observe: ObserveService, private router: Router) { }
   item: string = '';
   channelData: any;
   reg: any;
@@ -48,17 +48,14 @@ export class SearchChannelComponent implements OnInit {
     if (confimAdd) {
       this.observe.addUserChannel(id, this.userData.email).subscribe(res => {
         console.log(res);
-        this.observe.getAllChannel().subscribe(res => {
-          console.log(res);
-          this.channelData = res;
-          this.router.navigateByUrl('/RefrshComponent', { skipLocationChange: true }).then(() =>
-            this.router.navigate(["/chat"]));
-        },
-          err => {
-            console.log(err)
-          })
+        this.router.navigateByUrl('/RefrshComponent', { skipLocationChange: true }).then(() =>
+          this.router.navigate(["/chat"]));
+
       },
         err => {
+          alert("You are already member of this channel");
+          this.router.navigateByUrl('/RefrshComponent', { skipLocationChange: true }).then(() =>
+            this.router.navigate(["/chat"]));
           console.log(err)
         })
     }

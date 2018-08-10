@@ -1,11 +1,13 @@
 .myContainer{
     display: grid;
     grid-template-columns: 1fr 3fr;
+    max-width: 100%;
 }
 .leftSideBar{
     background-color: #4D394B;
     color: #AB9BA9;
     height: 100vh;
+    max-width: 100&;
 }
 #username{
     text-align: center;
@@ -23,7 +25,6 @@
     width: 150vh;
 }
 .messageGroup{
-    z-index: 1000;
     overflow-y: scroll;
     height: 70vh;
     width: 150vh; 
@@ -33,5 +34,22 @@
         overflow: hidden;
         width: 50%;
         margin: 5px;
+    }
+}
+.mainArea{
+    max-width: 100%;
+}
+.logout{
+    position: absolute;
+    top: 6vh;
+    left: 36vh;
+    button{
+        border: none;
+        background-color: #4D394B;
+    }
+    button:hover{        
+        border: none;
+        color: #4D394B;
+        background-color: #AB9BA9;
     }
 }
