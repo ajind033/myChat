@@ -58,13 +58,13 @@ export class ObserveService {
       }
 
   getAllMessage(): Observable<any> {
-    var channel = localStorage.getItem("channel");
+    var channel = sessionStorage.getItem("channel");
     return this.http.get(url+"/Channels/"+channel+"/Messages",
     this.httpOptions);
   }
 
   sendMessage(msg,from): Observable<any> {
-    var channel= localStorage.getItem("channel");
+    var channel= sessionStorage.getItem("channel");
         return this.http.post<any>(url+"/Channels/"+channel+"/Messages",
          "UniqueName="+channel+"&Body="+msg+"&From="+from+"&ServiceSid="+serviceId, this.httpOptions);
     

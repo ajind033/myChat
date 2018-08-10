@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class MychannelComponent implements OnInit {
 
   constructor(private googleService: GoogleLoginService, private observe: ObserveService, private router: Router) {
-    this.userData = this.googleService.getData();
+    this.userData = JSON.parse(sessionStorage.getItem("userData"))
 
     this.observe.getUserChannel(this.userData.email).subscribe(res => {
       console.log(res);
@@ -26,7 +26,7 @@ export class MychannelComponent implements OnInit {
 
   }
   changeChannel(channel) {
-    localStorage.setItem("channel", channel);
+    sessionStorage.setItem("channel", channel);
     console.log(channel);
   }
   addChannel() {

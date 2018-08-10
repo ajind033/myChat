@@ -20,7 +20,7 @@ export class ChatComponent implements OnInit, OnDestroy {
   }
   ngOnInit() {
 
-    this.userData = this.googleService.getData();
+    this.userData = JSON.parse(sessionStorage.getItem("userData"))
     this.observe.createUser(this.userData.email, this.userData.name).subscribe(res => {
       console.log(res);
     },
