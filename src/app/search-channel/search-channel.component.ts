@@ -21,6 +21,7 @@ export class SearchChannelComponent implements OnInit {
 
     this.observe.getAllChannel().subscribe(res => {
       console.log(res);
+      sessionStorage.setItem("allchannel",JSON.stringify(res));
       this.channelData = res;
     },
       err => {

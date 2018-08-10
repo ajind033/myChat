@@ -8,6 +8,7 @@ import{ HttpClientModule} from '@angular/common/http'
 
 import {ObserveService} from './observe.service';
 import{AuthService} from'./auth.service';
+import {AuthchatService} from './authchat.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -31,7 +32,8 @@ export function getAuthServiceConfigs() {
  const routes:Routes=[
    {
      path:'',
-     component:LoginComponent
+     component:LoginComponent,
+     canActivate:[AuthchatService]
    },
    {
      path:'chat',
@@ -62,6 +64,7 @@ export function getAuthServiceConfigs() {
   providers: [
     ObserveService,
     AuthService,
+    AuthchatService,
     {
       provide: AuthServiceConfig,
       useFactory: getAuthServiceConfigs

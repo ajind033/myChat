@@ -1,8 +1,10 @@
 <div class="mychannel">
-   Channels:   <span class="glyphicon glyphicon-plus-sign" (click)="addChannel()" id='addChannely'></span>
+  <span (click)="showUserChannel()" id ="channelHeading"> Channels:</span>
+  <span (click)="showUserChannel()" style="margin: 5px" [ngClass]="{'glyphicon glyphicon-triangle-top'  :(channelFag),'glyphicon glyphicon-triangle-bottom':(!channelFag)}"></span>
+     <span class="glyphicon glyphicon-plus-sign" (click)="addChannel()" id='addChannely'></span>
 
-  <ul>
-    <li *ngFor='let channel of userChannel' (click)='changeChannel(channel.channel_sid)' [id]=channel.channel_sid>{{channel.channel_sid}}</li>
+  <ul *ngIf='channelFag'>
+    <li *ngFor='let channel of userChanneldata' (click)='changeChannel(channel)' [id]=channel>{{channel}}</li>
   </ul>
   
   <br/>

@@ -19,7 +19,8 @@ export class ChatComponent implements OnInit, OnDestroy {
     clearInterval(this.setInt);
   }
   ngOnInit() {
-
+    
+    sessionStorage.setItem("key2","aerwss==");
     this.userData = JSON.parse(sessionStorage.getItem("userData"))
     this.observe.createUser(this.userData.email, this.userData.name).subscribe(res => {
       console.log(res);
