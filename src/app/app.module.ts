@@ -1,14 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
-import { Routes,RouterModule } from '@angular/router';
-import{SocialLoginModule,GoogleLoginProvider,AuthServiceConfig} from 'angular-6-social-login';
-import{ HttpClientModule} from '@angular/common/http'
+import { Routes, RouterModule } from '@angular/router';
+import { SocialLoginModule, GoogleLoginProvider, AuthServiceConfig } from 'angular-6-social-login';
+import { HttpClientModule } from '@angular/common/http'
 
-import {ObserveService} from './observe.service';
-import{AuthService} from'./auth.service';
-import {AuthchatService} from './authchat.service';
+import { ObserveService } from './observe.service';
+import { AuthService } from './auth.service';
+import { AuthchatService } from './authchat.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -25,26 +25,26 @@ export function getAuthServiceConfigs() {
         provider: new GoogleLoginProvider("277051742558-0vg6jt7vkfar17th1o4f9j6tf2ven9dh.apps.googleusercontent.com")
       }
     ]
-);
+  );
   return config;
 }
 
- const routes:Routes=[
-   {
-     path:'',
-     component:LoginComponent,
-     canActivate:[AuthchatService]
-   },
-   {
-     path:'chat',
-     component:ChatComponent,
-     canActivate:[AuthService]
-   },
-   {
-     path:'**',
-     component:PageNotFoundComponent
-   }
- ]
+const routes: Routes = [
+  {
+    path: '',
+    component: LoginComponent,
+    canActivate: [AuthchatService]
+  },
+  {
+    path: 'chat',
+    component: ChatComponent,
+    canActivate: [AuthService]
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent
+  }
+]
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,9 +1,13 @@
-.searchChannel{
+.searchChannel {
     position: relative;
-    margin:18px;
+    margin: 18px;
     height: 10vp;
-    z-index: 99 !important; 
-li{
-    overflow: hidden;
-}
+    z-index: 99 !important;
+    li {
+        overflow: hidden;
+    }
+    li:hover {
+        background-color: #AB9BA9;
+        color: #4D394B;
+    }
 }

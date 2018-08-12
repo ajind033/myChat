@@ -1,55 +1,81 @@
-.myContainer{
+.myContainer {
     display: grid;
     grid-template-columns: 1fr 4fr;
     max-width: 100%;
 }
-.leftSideBar{
+
+.leftSideBar {
     background-color: #4D394B;
     color: #AB9BA9;
     height: 100vh;
     max-width: 100&;
 }
-#username{
+
+.searchChannel {
+    margin: 10px;
+}
+
+#username {
     text-align: center;
     font-size: 18px;
-    margin-top:18px;
+    margin-top: 18px;
 }
-#username:hover{
+
+#username:hover {
     color: #ffffff;
 }
-.sendMsg{
-    position:absolute;
-    bottom:4vh;    
+
+.sendMsg {
+    position: absolute;
+    bottom: 4vh;
     margin-left: 18px;
     margin-right: 18px;
     width: 150vh;
 }
-.messageGroup{
-    overflow-y: scroll;
-    height: 70vh;
-    width: 150vh; 
+
+.messageGroup {
+    overflow-y: auto;
+    height: 80vh;
+    width: 150vh;
     position: absolute;
-    bottom: 12vh;
-    li{
+    bottom: 10vh;
+    li {
         overflow: hidden;
         width: 50%;
         margin: 5px;
     }
 }
-.mainArea{
+
+.mainArea {
     max-width: 100%;
 }
-.logout{
-    position: absolute;
-    top: 6vh;
-    left: 12vh;
-    button{
+
+.logout {
+    margin-top: 3vh;
+    margin-bottom: 5vh;
+    button {
         border: none;
         background-color: #4D394B;
     }
-    button:hover{        
+    button:hover {
         border: none;
         color: #4D394B;
         background-color: #AB9BA9;
     }
+}
+
+#currChannel {
+    p {
+        margin-bottom: -1px;
+        margin-left: 15px;
+        margin-top: 15px;
+        font-size: 15px;
+    }
+}
+
+.myChannel {
+    position: absolute;
+    top: 26vh;
+    left: 6vh;
+    ;
 }

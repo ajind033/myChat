@@ -8,32 +8,44 @@ import { Router } from '@angular/router';
 })
 export class MychannelComponent implements OnInit {
 
-  constructor( private observe: ObserveService, private router: Router) {
-    this.userData = JSON.parse(sessionStorage.getItem("userData"))
+  constructor(private observe: ObserveService, private router: Router) {
+    this.userData = JSON.parse(localStorage.getItem("userData"))
 
     this.observe.getUserChannel(this.userData.email).subscribe(res => {
       console.log(res);
-      sessionStorage.setItem("userAllChannel",JSON.stringify(res));
-     
+      localStorage.setItem("userAllChannel", JSON.stringify(res));
+
     },
       err => {
         console.log(err)
       })
   }
   userData: any;
-  userChanneldata =[];
-  channelFag:boolean=false;
+  userChanneldata = [];
+  channelFag: boolean = false;
   ngOnInit() {
-    
+    setTimeout(() => {
+      this.userChanneldata.length = 0;
+      var AllChanenl = JSON.parse(localStorage.getItem("allchannel"));
+      var userAllChannel = JSON.parse(localStorage.getItem("userAllChannel"));
+      for (let channel of AllChanenl.channels) {
+        for (let uChannel of userAllChannel.channels) {
+          if (channel.sid == uChannel.channel_sid) {
+            this.userChanneldata.push(channel.unique_name);
+          }
+        }
+      }
+      this.channelFag = !this.channelFag;
+    }, 3000)
   }
   changeChannel(channel) {
-    sessionStorage.setItem("channel", channel);
+    localStorage.setItem("channel", channel);
     console.log(channel);
   }
   addChannel() {
     var channelName = prompt("Please enter the channel name");
     if ((channelName == '') || (channelName == null)) {
-      alert("Enter the channel name")
+      alert("You forgot to enter the channel name")
       return;
     }
     console.log(channelName)
@@ -52,27 +64,5 @@ export class MychannelComponent implements OnInit {
         alert("Channel already exists");
         console.log(err)
       })
-  }
-
-  showUserChannel(){
-    this.userChanneldata.length=0;
-    var AllChanenl=JSON.parse(sessionStorage.getItem("allchannel"));
-    var userAllChannel = JSON.parse(sessionStorage.getItem("userAllChannel"));
-    for(let channel of AllChanenl.channels){
-      for(let uChannel of userAllChannel.channels){
-        if(channel.sid == uChannel.channel_sid){
-          this.userChanneldata.push(channel.unique_name);
-        }
-      }
-    }
-    this.channelFag=! this.channelFag;
-    if(this.channelFag){
-      document.getElementById("channelHeading").style.color="white";
-    }
-    else{
-      document.getElementById("channelHeading").style.color="#AB9BA9";
-
-    }
-
   }
 }

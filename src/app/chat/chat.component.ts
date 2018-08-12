@@ -9,19 +9,20 @@ import { ObserveService } from '../observe.service';
 })
 export class ChatComponent implements OnInit, OnDestroy {
 
-  constructor( private observe: ObserveService,private router : Router ) { }
+  constructor(private observe: ObserveService, private router: Router) { }
   message: any;
   author: any;
   userData: any;
   msg: string = '';
   setInt: any;
+  currChannel: string = "general";
   ngOnDestroy() {
     clearInterval(this.setInt);
   }
   ngOnInit() {
-    
-    sessionStorage.setItem("key2","aerwss==");
-    this.userData = JSON.parse(sessionStorage.getItem("userData"))
+
+    localStorage.setItem("key2", "aerwss==");
+    this.userData = JSON.parse(localStorage.getItem("userData"))
     this.observe.createUser(this.userData.email, this.userData.name).subscribe(res => {
       console.log(res);
     },
@@ -39,17 +40,17 @@ export class ChatComponent implements OnInit, OnDestroy {
       this.observe.getAllMessage().subscribe(res => {
         console.log(res);
         this.message = res.messages;
-
+        this.currChannel = localStorage.getItem("channel");
       },
         err => {
           console.log(err)
         })
-    }, 1000)
+    }, 2000)
 
   }
   sendMsg() {
 
-    if (this.msg=="") {
+    if (this.msg == "") {
       return;
     }
     console.log(this.msg);
@@ -62,8 +63,8 @@ export class ChatComponent implements OnInit, OnDestroy {
         console.log(err)
       })
   }
-  logout(){
-    sessionStorage.clear();
+  logout() {
+    localStorage.clear();
     alert("You are logged out!!");
     this.router.navigate(['/']);
   }

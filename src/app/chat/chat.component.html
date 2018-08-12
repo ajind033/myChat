@@ -3,18 +3,22 @@
     <div id="username">
       {{this.userData.email}}
     </div>
-    <div class="myChannel">
-      <app-mychannel></app-mychannel>
-    </div>
-    <div class="logout">
+    <div class="logout" align="center">
       <button type="button" (click)="logout()">
         <span class="glyphicon glyphicon-log-out"></span> Log out
       </button>
     </div>
-  </div>
-  <div class="mainArea">
     <div class="searchChannel">
       <app-search-channel></app-search-channel>
+    </div>
+    <div class="myChannel">
+      <app-mychannel></app-mychannel>
+    </div>
+  </div>
+  <div class="mainArea">
+    <div id="currChannel">
+      <p> #{{this.currChannel}}</p>
+      <hr color="#4D394B" />
     </div>
     <div class="messageGroup">
       <ul class="list-group">
@@ -24,7 +28,7 @@
       </ul>
     </div>
     <div class="sendMsg">
-      <input type="text" class="form-control" placeholder="Your text" (keyup.enter)="sendMsg()" [(ngModel)]=msg>
+      <input type="text" class="form-control" placeholder="Message #{{this.currChannel}}" (keyup.enter)="sendMsg()" [(ngModel)]=msg>
     </div>
   </div>
 </div>

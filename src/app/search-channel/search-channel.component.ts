@@ -17,11 +17,11 @@ export class SearchChannelComponent implements OnInit {
   searchData = [];
   ngOnInit() {
 
-    this.userData = JSON.parse(sessionStorage.getItem("userData"));
+    this.userData = JSON.parse(localStorage.getItem("userData"));
 
     this.observe.getAllChannel().subscribe(res => {
       console.log(res);
-      sessionStorage.setItem("allchannel",JSON.stringify(res));
+      localStorage.setItem("allchannel", JSON.stringify(res));
       this.channelData = res;
     },
       err => {
@@ -45,7 +45,7 @@ export class SearchChannelComponent implements OnInit {
 
   addToChannel(id) {
 
-    var confimAdd = window.confirm("Add this channel");
+    var confimAdd = window.confirm("Join this channel");
     if (confimAdd) {
       this.observe.addUserChannel(id, this.userData.email).subscribe(res => {
         console.log(res);

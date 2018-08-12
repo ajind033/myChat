@@ -1,7 +1,6 @@
 <div class="searchChannel">
-  
-    <input type="text" class="form-control" align="right" placeholder="Search Channel" (keyup)="findchannel()" [(ngModel)]=item>
+  <input type="text" class="form-control" align="right" placeholder="Search Channel" (keyup)="findchannel()" [(ngModel)]=item>
   <ul>
-    <li *ngFor='let channel of searchData' class="list-group-item" (click)='addToChannel(channel)'>{{channel}}</li>
+    <li *ngFor='let channel of searchData' class="list-group-item" (click)='addToChannel(channel)'>#{{channel}}</li>
   </ul>
 </div>

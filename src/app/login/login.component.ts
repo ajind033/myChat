@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   constructor(private socialAuthService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    sessionStorage.setItem("channel", "general");
+    localStorage.setItem("channel", "general");
   }
   public socialSignIn(socialPlatform: string) {
     let socialPlatformProvider;
@@ -25,8 +25,8 @@ export class LoginComponent implements OnInit {
         console.log(socialPlatform + " sign in data : ", userData);
         // Now sign-in with userData
         // ...
-        sessionStorage.setItem("userData",JSON.stringify(userData))
-        sessionStorage.setItem('key',"okmlp==");
+        localStorage.setItem("userData", JSON.stringify(userData))
+        localStorage.setItem('key', "okmlp==");
         this.router.navigate(["/chat"])
       }
 

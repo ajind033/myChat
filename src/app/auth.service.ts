@@ -7,9 +7,9 @@ import { CanActivate, Router } from '../../node_modules/@angular/router';
 })
 export class AuthService implements CanActivate {
 
-  constructor(private router:Router) { }
-  canActivate(){
-    if(sessionStorage.getItem("key")=="okmlp=="){
+  constructor(private router: Router) { }
+  canActivate() {
+    if (localStorage.getItem("key") == "okmlp==") {
       return true;
     }
     alert('Session Timed-out');
