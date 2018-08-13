@@ -43,6 +43,11 @@
         overflow: hidden;
         width: 50%;
         margin: 5px;
+        word-wrap: break-word;
+        p{
+            float: right;
+            font-size: 12px;
+        }
     }
 }
 
