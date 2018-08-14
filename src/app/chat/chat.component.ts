@@ -32,6 +32,8 @@ export class ChatComponent implements OnInit, OnDestroy {
 
     this.observe.addToGeneralChannel(this.userData.email).subscribe(res => {
       console.log(res);
+      this.router.navigateByUrl('/RefrshComponent', { skipLocationChange: true }).then(() =>
+            this.router.navigate(["/chat"]));
     },
       err => {
         console.log(err)
@@ -41,6 +43,7 @@ export class ChatComponent implements OnInit, OnDestroy {
         console.log(res);
         this.message = res.messages;
         this.currChannel = localStorage.getItem("channel");
+      
       },
         err => {
           console.log(err)
@@ -53,8 +56,12 @@ export class ChatComponent implements OnInit, OnDestroy {
     if (this.msg == "") {
       return;
     }
+     var userName={
+      "name":this.userData.name
+    }
     console.log(this.msg);
-    this.observe.sendMessage(this.msg, this.userData.email).subscribe(res => {
+    
+    this.observe.sendMessage(this.msg, this.userData.email,JSON.stringify(userName)).subscribe(res => {
       console.log(res);
       this.msg = "";
 

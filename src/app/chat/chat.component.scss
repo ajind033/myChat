@@ -1,86 +1,88 @@
 .myContainer {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  max-width: 100%;
 }
 
 .leftSideBar {
-    background-color: #4D394B;
-    color: #AB9BA9;
-    height: 100vh;
-    max-width: 100&;
+  background-color: #4D394B;
+  color: #AB9BA9;
+  height: 100vh;
+  max-width: 100&;
 }
 
 .searchChannel {
-    margin: 10px;
+    position: relative;
+    top: 2vh;
 }
 
 #username {
-    text-align: center;
-    font-size: 18px;
-    margin-top: 18px;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 18px;
 }
 
 #username:hover {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .sendMsg {
-    position: absolute;
-    bottom: 4vh;
-    margin-left: 18px;
-    margin-right: 18px;
-    width: 150vh;
+  position: absolute;
+  bottom: 4vh;
+  margin-left: 18px;
+  margin-right: 18px;
+  width: 150vh;
 }
 
 .messageGroup {
-    overflow-y: auto;
-    height: 80vh;
-    width: 150vh;
-    position: absolute;
-    bottom: 10vh;
-    li {
-        overflow: hidden;
-        width: 50%;
-        margin: 5px;
-        word-wrap: break-word;
-        p{
-            float: right;
-            font-size: 12px;
-        }
+  overflow-y: auto;
+  height: 80vh;
+  width: 150vh;
+  position: absolute;
+  bottom: 10vh;
+  li {
+    overflow: hidden;
+    width: 50%;
+    margin: 5px;
+    word-wrap: break-word;
+    p {
+      float: right;
+      font-size: 12px;
     }
+  }
 }
 
 .mainArea {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .logout {
-    margin-top: 3vh;
-    margin-bottom: 5vh;
-    button {
-        border: none;
-        background-color: #4D394B;
-    }
-    button:hover {
-        border: none;
-        color: #4D394B;
-        background-color: #AB9BA9;
-    }
+  margin-bottom: 2vh;
+  margin-right: 20vh;
+  float: right;
+  button {
+    background-color: #4D394B;
+    border-color: #4D394B;
+  }
 }
 
 #currChannel {
-    p {
-        margin-bottom: -1px;
-        margin-left: 15px;
-        margin-top: 15px;
-        font-size: 15px;
-    }
+  p {
+    margin-bottom: -1px;
+    margin-left: 15px;
+    margin-top: 15px;
+    font-size: 15px;
+  }
 }
 
 .myChannel {
-    position: absolute;
-    top: 26vh;
-    left: 6vh;
-    ;
+  position: absolute;
+  top: 20vh;
+  left: 6vh;
+  ;
+}
+
+.avatar {
+  border-radius: 50%;
+  height: 2.5em;
 }

@@ -62,13 +62,13 @@ export class ObserveService {
       this.httpOptions);
   }
 
-  sendMessage(msg, from): Observable<any> {
+  sendMessage(msg, from, userJson): Observable<any> {
     var channel = localStorage.getItem("channel");
     return this.http.post<any>(url + "/Channels/" + channel + "/Messages",
-      "UniqueName=" + channel + "&Body=" + msg + "&From=" + from + "&ServiceSid=" + serviceId, this.httpOptions);
+      "UniqueName=" + channel + "&Body=" + msg + "&From=" + from+ "&Attributes=" + userJson + "&ServiceSid=" + serviceId, this.httpOptions);
 
   }
 
 }
-const serviceId: string = 'IS9584ed6d391745eca14236ba536f78e9';
+const serviceId: string = 'IS871725e36e3c4f9ca181ae7af50fbcea';
 const url: string = 'https://chat.twilio.com/v2/Services/' + serviceId;

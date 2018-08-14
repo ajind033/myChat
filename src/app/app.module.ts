@@ -16,6 +16,7 @@ import { ChatComponent } from './chat/chat.component';
 import { SearchChannelComponent } from './search-channel/search-channel.component';
 import { MychannelComponent } from './mychannel/mychannel.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { UserNamePipePipe } from './user-name-pipe.pipe';
 
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
@@ -52,7 +53,8 @@ const routes: Routes = [
     ChatComponent,
     SearchChannelComponent,
     MychannelComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    UserNamePipePipe
   ],
   imports: [
     FormsModule,

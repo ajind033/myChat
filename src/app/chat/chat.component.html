@@ -1,13 +1,10 @@
 <div class=" myContainer">
   <div class="leftSideBar">
     <div id="username">
-      {{this.userData.email}}
+      <img [src]="this.userData.image" class="avatar">&ensp; {{this.userData.name}}
+      <div style="font-size:14px;"> {{this.userData.email}} </div>
     </div>
-    <div class="logout" align="center">
-      <button type="button" (click)="logout()">
-        <span class="glyphicon glyphicon-log-out"></span> Log out
-      </button>
-    </div>
+
     <div class="searchChannel">
       <app-search-channel></app-search-channel>
     </div>
@@ -17,17 +14,23 @@
   </div>
   <div class="mainArea">
     <div id="currChannel">
+      <div class="logout">
+        <button type="button" class="btn btn-danger " (click)="logout()">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+        </button>
+      </div>
       <p> #{{this.currChannel}}</p>
-      <hr color="#4D394B" />
     </div>
+    <hr color="#4D394B" />
     <div class="messageGroup" #msgGrp [scrollTop]="msgGrp.scrollHeight">
       <ul class="list-group">
         <li *ngFor='let msg of message' [ngClass]="{'alert alert-warning':(msg.from != userData.email),'alert alert-success':(msg.from == userData.email)}"
           [ngStyle]='{"float": msg.from == userData.email ? "right": "left"}'>
-         <b> {{msg.from}}:</b><br/>
-          {{msg.body}}<br/>
-      <p>  {{msg.date_updated|date:'MMM d, y, h:mm a'}}</p>
-         </li>
+          <b>{{msg | userNamePipe}}:</b>
+          <br/> {{msg.body}}
+          <br/>
+          <p> {{msg.date_updated|date:'MMM d, y, h:mm a'}}</p>
+        </li>
       </ul>
     </div>
     <div class="sendMsg">
